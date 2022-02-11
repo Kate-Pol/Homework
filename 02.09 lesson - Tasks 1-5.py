@@ -55,4 +55,11 @@ for y in list(permutations(letters)):
 print(' ')
 print('Task 4')
 # The math quiz program
-# will add this task tomorrow
+expression_value = 25 + 5 * 10
+expression = '25 + 5 * 10'
+answer = int(input(f'Please solve following mathematical expression: {expression} = '))
+if answer == expression_value:
+    print('You are right! Good job:)')
+else:
+    print(f'You are wrong. Correct answer is {expression_value}')
+
