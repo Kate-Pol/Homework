@@ -2,6 +2,8 @@ from datetime import date
 
 today_date = date.today()
 task_list = []
+# task_list = [{'id': 1, 'title': '1', 'description': '1', 'priority': 1, 'status': 'pending', 'due_date': '1'}, {'id': 2, 'title': '2', 'description': '2', 'priority': 2, 'status': 'pending', 'due_date': '2'}, {'id': 3, 'title': '2', 'description': '2', 'priority': 2, 'status': 'pending', 'due_date': '2'}, {'id': 4, 'title': '3', 'description': '3', 'priority': 3, 'status': 'pending', 'due_date': '3'}]
+
 count_id = 0
 print(f'Привет, сегодня {today_date}, посмотри задачи')
 print(f'0.Завершення роботи (done)\n' # завершает программу
@@ -17,8 +19,8 @@ print(f'0.Завершення роботи (done)\n' # завершает пр�
 
 users_input = 1
 # index = 1
+index = len(task_list) - 1
 while users_input in range(0, 8):
-      # index = len(task_list) - 1
       users_input = int(input('Please enter No. of command (from 0 to 8): '))
       if users_input == 0:
             print('You finished work. Good bye.')
@@ -34,7 +36,17 @@ while users_input in range(0, 8):
             for i in range(len(task_list)):
                   print(f'''ID: {task_list[i]['id']} Title: {task_list[i]['title']} Status: {task_list[i]['status']}''')
                   i += 1
-      elif users_input
+      elif users_input == 3:
+            user_search_id = int(input('введи айди задачи: '))
+            try:
+                  for item in range(len(task_list)):
+                  # user_search_id = int(input('введи айди задачи: ')
+                        item == user_search_id
+                  print(task_list[user_search_id - 1])
+            except IndexError:
+                  print('нет такого айди')
+
+
 
 
 
