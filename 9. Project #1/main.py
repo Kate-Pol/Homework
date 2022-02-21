@@ -37,16 +37,25 @@ while users_input in range(0, 8):
                   print(f'''ID: {task_list[i]['id']} Title: {task_list[i]['title']} Status: {task_list[i]['status']}''')
                   i += 1
       elif users_input == 3:
-            user_search_id = int(input('введи айди задачи: '))
-            try:
-                  for item in range(len(task_list)):
-                  # user_search_id = int(input('введи айди задачи: ')
-                        item == user_search_id
-                  print(task_list[user_search_id - 1])
-            except IndexError:
-                  print('нет такого айди')
+            while True:
+                  user_search_id = int(input('Введи ID задачі: '))
+                  try:
+                        user_search_id == len(task_list) - 1
+                        print(task_list[user_search_id - 1])
+                        break
+                  except IndexError:
+                        print('ID некоректний, спробуй ще ')
+                        continue
+      # elif users_input == 4:   --- not completed
 
 
+      elif users_input == 5:
+            user_delete_task = int(input('Введи ID задачі: '))
+            delete_consent = input(f'Ти впевнений, що хочеш видалити задачу {task_list[user_delete_task - 1]} (yes / no)? ')
+            if delete_consent == 'yes':
+                  user_delete_task == len(task_list) - 1
+                  for key, value in task_list[user_delete_task - 1].items():
+                        task_list[user_delete_task - 1][key] = 'deleted'
 
 
 
