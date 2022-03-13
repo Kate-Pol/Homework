@@ -1,9 +1,5 @@
 # Extracting numbers
-first_number = 0
-lst_1 = []
-while len(lst_1) < 100:
-    first_number += 1
-    lst_1.append(first_number)
+lst_1 = [i for i in range(1,101)]
 print('list 1:', lst_1)
 lst_2 = []
 for n in lst_1:
