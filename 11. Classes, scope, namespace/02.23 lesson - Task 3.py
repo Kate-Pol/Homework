@@ -1,45 +1,52 @@
 # TV controller
 class TVController:
 
-    commands = {0: 'All channels', 1: 'First channel', 2: 'last_channel',
-                3: 'turn_channel_1', 4: 'next_channel', 5: 'previous_channel',
-                6: 'current_channel', 7: 'is_exist_4', 8: 'is_exist_BBC'}
-    print(commands)
+    def __init__(self, channels):
+        self._channels = channels
+        self._current_channel = 0
 
-    def __init__(self, first, second, last):
-        self.all_channels = first + ' ' + second + ' ' + last
-        self.first_channel = first
-        self.last_channel = last
-        self.turn_channel_1 = first
-        self.next_channel = second
-        self.previous_channel = first
-        self.current_channel = first
-        self.is_exist_4 = 'No'
-        self.is_exist_BBC = 'Yes'
+    def first_channel(self):
+        return self.turn_channel(1)
 
-    def show_my_channel(self):
-        user_command = str(input('Please enter command number: '))
-        if user_command == '0':
-            return self.all_channels
-        elif user_command == '1':
-            return self.first_channel
-        elif user_command == '2':
-            return self.last_channel
-        elif user_command == '3':
-            return self.turn_channel_1
-        elif user_command == '4':
-            return self.next_channel
-        elif user_command == '5':
-            return self.previous_channel
-        elif user_command == '6':
-            return self.current_channel
-        elif user_command == '7':
-            return self.is_exist_4
-        elif user_command == '8':
-            return self.is_exist_BBC
+    def last_channel(self):
+        return self.turn_channel(len(self._channels))
+
+    def turn_channel(self, channel_number):
+        self._current_channel = channel_number - 1
+        return self.current_channel()
+
+    def _previous_next(self, delta):
+        self._current_channel = (self._current_channel + delta) % len(self._channels)
+        return self.current_channel()
+
+    def next_channel(self):
+        return self._previous_next(1)
+
+    def previous_channel(self):
+        return self._previous_next(-1)
+
+    def current_channel(self):
+        return self._channels[self._current_channel]
+
+    def is_exist(self, channel):
+        if isinstance(channel, int):
+            c = 0 <= channel < len(self._channels)
         else:
-            return print('TV is off')
+            c = channel in self._channels
+        return ('No', 'Yes')[c]
 
-commands = TVController('BBC', 'Discovery', 'TV1000')
+if __name__ == '__main__':
 
-print(commands.show_my_channel())
+    channels = ["BBC", "Discovery", "TV1000"]
+    controller = TVController(channels)
+
+    assert controller.first_channel() == "BBC"
+    assert controller.last_channel() == "TV1000"
+    assert controller.turn_channel(1) == "BBC"
+    assert controller.next_channel() == "Discovery"
+    assert controller.previous_channel() == "BBC"
+    assert controller.current_channel() == "BBC"
+    assert controller.is_exist(4) == "No"
+    assert controller.is_exist("BBC") == "Yes"
+
+print(channels)
