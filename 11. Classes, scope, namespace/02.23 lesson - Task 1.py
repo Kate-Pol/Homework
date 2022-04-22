@@ -5,12 +5,13 @@ class Person:
         self.first = first
         self.last = last
         self.age = age
-        self.full_name = first + ' ' + last
+        self.full_name = (f'{first} {last}')
 
     def talk(self):
-        return 'Hello, my name {} and I am {} years old.'.format(self.full_name, self.age)
+        return(f'Hello, my name {self.full_name} and I am {self.age} years old.')
 
 per_1 = Person('Carl', 'Jonhson', 26)
 
-print('{}, {}, {}'.format(per_1.first, per_1.last, per_1.age))
+print(f'{per_1.full_name}, {per_1.age}')
 print(per_1.talk())
+print(per_1.full_name)
