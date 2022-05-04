@@ -1,11 +1,8 @@
 # Function returns another function:
 
-def A():
-    print('This is function A')
-    
-def B():
-    print('This is function B')
-    return A
+def outside_func(text):
+    def inside_func(name):
+        return f'My name is {name}'
+    return inside_func(text)
 
-returned_function = B()
-print(returned_function())
+print(outside_func('Kate'))
