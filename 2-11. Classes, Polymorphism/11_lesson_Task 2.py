@@ -1,57 +1,60 @@
-class Library(): 
-    
-    def __init__(self):
-		self.books = []
-		self.authors = []
-        self.obj_book_id = Book(book_id)
-        self.obj_author_name = Author(author_name)
-    
-    def book_lst(self):
-		if i in self.books:
-			if i.book_id == self.obj_book_id:
-				raise ValueError('This book in library already')
-			else: 
-				self.books.append(self.obj_book_id, Book(year), self.obj_author_name)
-        
-    def group_by_author(self):
-        for i in self.books:			
-            if book[2] == Author(author_name):
-                self.authors.append(i)
-        return self.authors
-    
-    def group_by_year(self):
-        for i in self.books:
-            if book[1] == Book(year):
-                self.books.append(book)
-        return self.books
-                             
-class Book():
-    def __init__(self, book_id, year, author_name):
-        self.book_id = book_id
-        self.year = year
-        self.obj_author_name = Author(author_name)
-	
-	def __str__(self):
-		return f'{book_id[self.book_id]}, {year[self.year]}'
-		
-class Author():
-
-    def __init__(self, author_name, country, birthday):
-        self.author_name = author_name
+class Author:
+    def __init__(self, name, country, birthday):
+        self.name = name
         self.country = country
         self.birthday = birthday
+        self.book = []
+        
+    def __repr__(self):
+        return f'Автор {self.name} из {self.country} {self.year} года рождения'
+
+class Book:
+    def __init__(self, name, year, author):
+        self.name = name # str
+        self.year = year # int
+        self.author = author # Объект! класса Author
         
     def __str__(self):
-		return f'{author_name[self.author_name]}, {country[self.country]}'
+        return f'"{self.name}" автора {self.author.name} {self.year} года издания'
+        
+    def __repr__(self):
+        return f'"{self.name}" автора {self.author.name} {self.year} года издания'
+    
+class Library:
+    def __init__(self, name):
+        self.name = name
+        self.books = []   # списки объектов Book
+        self.authors = [] # списки объектов Author
+        
+    def __str__(self):
+        s = self.name + ':\n'
+        for b in self.books:
+            s += f'{b},'
+        return s
+        
+    def new_book(self, name, year, author):
+        b = Book(name, year, author)
+        self.books.append(b)
+        return b
+        
+    def group_by_author(self, author):
+        l = []
+        for b in self.books:
+            if b.author == author:
+                l.append(b)
+        return l
+        
+    def group_by_year(self, year):
+        l = []
+        for b in self.books:
+            if b.year == year:
+                l.append(b)
+        return l
+        
+a = Author('Роулинг', 'UK', 1965)
+b = Author('Кинг', 'USA', 1947)
+l = Library('Библиотека Хогвартса')
+print(l)
+l.new_book('Оно', 2022, b)
+print(l)
 
-
-my_library = Library()
-book_1 = [Book("Harry Potter and the Sercerer's Stone", 1997), Author("J.K Rowling", "England", "July 31, 1965")]   
-book_2 = [Book("Harry Potter and the Chamber of Secrets", 1998), Author("J.K Rowling", "England", "July 31, 1965")]
-book_3 = [Book("The Great Divorce", 1945), Author("C. S. Lewis", "England", "Nov 29, 1898")]
-
-
-my_library.new_book(book_1)
-print(my_library.book_by_year())
-
-print(book_1)
