@@ -92,6 +92,9 @@ class WH:
         print(titles_lst)
         print(f'Total count of the position titles: {len(titles_lst)}')
 
+    def people_with_title(self):          # this method was not completed from 05.07
+        people_count_dict = {i : self.titles.count(i) for i in self.titles}
+        print(people_count_dict)
 
     
 wh = WH('white_house_2017_salaries_com.csv')
@@ -107,13 +110,15 @@ print(wh.staff())
 
 wh.count_sotr()
 
-del wh.sotr[4:100]
+del wh.sotr[4:300]
 print(len(wh.sotr))
 wh.count_sotr()
 
 print(wh.staff_aver_salary())
 
 print(wh.posit_titles())
+
+print(wh.people_with_title())
 
 
 
