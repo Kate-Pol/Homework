@@ -1,36 +1,74 @@
-# 1.1 Task
-def gen(N): 
-    for i in range(N):
-        yield str(i)
-    
-k = gen(10)
-print([i for i in k])
+from email.generator import Generator
 
 
-# 1.4 Task
-def gen(N):
-    new_lst = [x for x in N if (x.isdigit())] 
-    yield new_lst
-    
+# Generators / List comprehension
 
-k = gen(['111', 'cat', 'got', 'ddd', '222'])
-print([i for i in k])
+# task 1.1
+N = 10
+lst = [ str(i + 1) for i in range(N) ]
+print(lst)
 
+# task 1.2
+lists = ['кит', 'кот', 'крот']
+lst_2 = [ str(n) + ' ' + str(k) for n, k in enumerate(lists) ]
+# lst_2 = [ f' {i} {list[i]}' for i in range(len(lists))]
+print(lst_2)
 
-# 1.5 Task
-def gen(N):
-    new_lst = []
-    new_lst.append(i for i in enumerate(N) if i.isdigit())
-    yield new_lst
-    
-k = gen(['111', 'cat', 'got', 'ddd', '222'])
-print([i for i in k])
+# task 1.3
+lists_3 = ['кит', 'кот', 'крот']
+lst_3 = [ f' {i} {lists_3[i]}' for i in range(len(lists_3)) if len(lists_3[i]) <= 3 ]
+print(lst_3)
 
+# task 1.4
+lists_4 = ['111', 'cat', 'got', 'ddd', '222']
+lst_4 = [ i for i in lists_4 if i.isdigit() ]
+# lst_5 = [ k for n, k in enumarate(lists_5) if k.isdigit() ]
+print(lst_4)
 
-# 1.6 Task
-def gen(N):
-    new_lst = list(({ind: i for ind, i in enumerate(N) if i.isdigit()}).items())
-    yield new_lst
-    
-k = gen(['111', 'cat', 'got', 'ddd', '222'])
-print([i for i in k])
+# task 1.5
+lists_5 = ['111', 'cat', 'got', 'ddd', '222']
+lst_5 = [ i for i in range(len(lists_5)) if lists_5[i].isdigit() ]
+# lst_5 = [ n for n, k in enumarate(lists_5) if k.isdigit() ]
+print(lst_5)
+
+# task 1.6
+lists_6 = ['111', 'cat', 'got', 'ddd', '222']
+lst_6 = [ (n, k) for n, k in enumerate(lists_6) if k.isdigit() ]
+print(lst_6)
+
+# task 1.7
+phones = ['044 225 73 39', '099 116 30 87', '094 129 81 69', '094 127 04 85', 
+          '044 222 74 33', '044 353 55 31', '097 921 27 09', '094 550 50 02', 
+          '044 362 96 00', '097 853 55 81', '097 120 95 90', '099 752 22 97', 
+          '050 761 49 45', '094 497 75 09', '094 498 89 53', '094 496 13 91', 
+          '094 497 35 13', '094 497 75 69', '050 063 52 97', '050 530 97 71', 
+          '044 227 16 63', '056 785 55 19', '068 450 69 13', '097 001 42 67', 
+          '096 097 58 16', '094 497 34 37', '094 097 12 17', '094 497 75 69', 
+          '097 497 75 97', '094 497 34 85', '094 496 52 54']
+lst_7 = [ i for i in phones if i[:3] == '097' ]
+# lst_7 = [ i for i in phones if i.startswith('097') ] or use: i.split(maxsplit=1)[0]=='0997'
+print(lst_7)
+
+# task 1.8
+phones = ['044 225 73 39', '099 116 30 87', '094 129 81 69', '094 127 04 85', 
+          '044 222 74 33', '044 353 55 31', '097 921 27 09', '094 550 50 02', 
+          '044 362 96 00', '097 853 55 81', '097 120 95 90', '099 752 22 97', 
+          '050 761 49 45', '094 497 75 09', '094 498 89 53', '094 496 13 91', 
+          '094 497 35 13', '094 497 75 69', '050 063 52 97', '050 530 97 71', 
+          '044 227 16 63', '056 785 55 19', '068 450 69 13', '097 001 42 67', 
+          '096 097 58 16', '094 497 34 37', '094 097 12 17', '094 497 75 69', 
+          '097 497 75 97', '094 497 34 85', '094 496 52 54']
+lst_8 = [ i for i in phones if i.startswith('097') or i.startswith('050') ]
+print(lst_8)
+
+# task 1.9
+phones = ['044 225 73 39', '099 116 30 87', '094 129 81 69', '094 127 04 85', 
+          '044 222 74 33', '044 353 55 31', '097 921 27 09', '094 550 50 02', 
+          '044 362 96 00', '097 853 55 81', '097 120 95 90', '099 752 22 97', 
+          '050 761 49 45', '094 497 75 09', '094 498 89 53', '094 496 13 91', 
+          '094 497 35 13', '094 497 75 69', '050 063 52 97', '050 530 97 71', 
+          '044 227 16 63', '056 785 55 19', '068 450 69 13', '097 001 42 67', 
+          '096 097 58 16', '094 497 34 37', '094 097 12 17', '094 497 75 69', 
+          '097 497 75 97', '094 497 34 85', '094 496 52 54']
+lst_8 = [ '+38' + i.replace(' ', '') for i in phones if i.startswith('097') or i.startswith('050') ]
+print(lst_8)
