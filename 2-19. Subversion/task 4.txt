@@ -1,0 +1,7 @@
+#1 - log - shows all the changes in the file for dates 01-01 to 02-01 (not including last date). Has just comments.
+
+#2 - -v log - shows all as in #1 and has list  of files, which were modified, added, deleted. For the same dates. 
+
+#3 - --diff log - shows log, which has differences (changes) for each revision. Revision number. 
+
+#4 - -v --diff log - For dates 01-01 to 01-11. Revision number. Shows is file was modified, and which changes were made (diff). 

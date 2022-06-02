@@ -1,0 +1,127 @@
+
+C:\Users\katep\Desktop\poligon\u1>svn update
+Updating '.':
+At revision 5.
+
+C:\Users\katep\Desktop\poligon\u1>svn log
+------------------------------------------------------------------------
+r5 | katep | 2022-05-21 21:56:32 -0400 (Sat, 21 May 2022) | 1 line
+
+second file - added 1 line
+------------------------------------------------------------------------
+r4 | katep | 2022-05-21 21:54:39 -0400 (Sat, 21 May 2022) | 1 line
+
+second file added
+------------------------------------------------------------------------
+r3 | katep | 2022-05-21 21:49:36 -0400 (Sat, 21 May 2022) | 1 line
+
+updated 2nd line
+------------------------------------------------------------------------
+r2 | katep | 2022-05-21 21:47:47 -0400 (Sat, 21 May 2022) | 1 line
+
+added 3rd line
+------------------------------------------------------------------------
+r1 | katep | 2022-05-21 21:43:37 -0400 (Sat, 21 May 2022) | 1 line
+
+file added
+------------------------------------------------------------------------
+
+C:\Users\katep\Desktop\poligon\u1>svn diff
+
+C:\Users\katep\Desktop\poligon\u1>svn status
+M       hm2.txt
+
+C:\Users\katep\Desktop\poligon\u1>svn diff
+Index: hm2.txt
+===================================================================
+--- hm2.txt     (revision 5)
++++ hm2.txt     (working copy)
+@@ -1 +1,2 @@
+ this is second file
++cats are the best :)
+
+C:\Users\katep\Desktop\poligon\u1>svn commit -m "second file - added 2nd line"
+Sending        hm2.txt
+Transmitting file data .done
+Committing transaction...
+Committed revision 6.
+
+C:\Users\katep\Desktop\poligon\u1>svn update
+Updating '.':
+At revision 6.
+
+C:\Users\katep\Desktop\poligon\u1>svn log
+------------------------------------------------------------------------
+r6 | katep | 2022-05-21 21:58:32 -0400 (Sat, 21 May 2022) | 1 line
+
+second file - added 2nd line
+------------------------------------------------------------------------
+r5 | katep | 2022-05-21 21:56:32 -0400 (Sat, 21 May 2022) | 1 line
+
+second file - added 1 line
+------------------------------------------------------------------------
+r4 | katep | 2022-05-21 21:54:39 -0400 (Sat, 21 May 2022) | 1 line
+
+second file added
+------------------------------------------------------------------------
+r3 | katep | 2022-05-21 21:49:36 -0400 (Sat, 21 May 2022) | 1 line
+
+updated 2nd line
+------------------------------------------------------------------------
+r2 | katep | 2022-05-21 21:47:47 -0400 (Sat, 21 May 2022) | 1 line
+
+added 3rd line
+------------------------------------------------------------------------
+r1 | katep | 2022-05-21 21:43:37 -0400 (Sat, 21 May 2022) | 1 line
+
+file added
+------------------------------------------------------------------------
+
+C:\Users\katep\Desktop\poligon\u1>svn del hm2
+svn: E200005: Use --force to override this restriction (local modifications may be lost)
+svn: E200005: 'C:\Users\katep\Desktop\poligon\u1\hm2' is not under version control
+
+C:\Users\katep\Desktop\poligon\u1>svn del hm2.txt
+D         hm2.txt
+
+C:\Users\katep\Desktop\poligon\u1>svn commit -m "deleted second file"
+Deleting       hm2.txt
+Committing transaction...
+Committed revision 7.
+
+C:\Users\katep\Desktop\poligon\u1>svn update
+Updating '.':
+At revision 7.
+
+C:\Users\katep\Desktop\poligon\u1>svn log
+------------------------------------------------------------------------
+r7 | katep | 2022-05-21 22:00:18 -0400 (Sat, 21 May 2022) | 1 line
+
+deleted second file
+------------------------------------------------------------------------
+r6 | katep | 2022-05-21 21:58:32 -0400 (Sat, 21 May 2022) | 1 line
+
+second file - added 2nd line
+------------------------------------------------------------------------
+r5 | katep | 2022-05-21 21:56:32 -0400 (Sat, 21 May 2022) | 1 line
+
+second file - added 1 line
+------------------------------------------------------------------------
+r4 | katep | 2022-05-21 21:54:39 -0400 (Sat, 21 May 2022) | 1 line
+
+second file added
+------------------------------------------------------------------------
+r3 | katep | 2022-05-21 21:49:36 -0400 (Sat, 21 May 2022) | 1 line
+
+updated 2nd line
+------------------------------------------------------------------------
+r2 | katep | 2022-05-21 21:47:47 -0400 (Sat, 21 May 2022) | 1 line
+
+added 3rd line
+------------------------------------------------------------------------
+r1 | katep | 2022-05-21 21:43:37 -0400 (Sat, 21 May 2022) | 1 line
+
+file added
+------------------------------------------------------------------------
+
+C:\Users\katep\Desktop\poligon\u1>
