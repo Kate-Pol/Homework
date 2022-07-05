@@ -1,0 +1,30 @@
+<html>
+<meta charset="utf8">
+<head>
+<title>Employees List</title>
+<link href="../albums.css" rel="stylesheet">
+</head>
+
+<body>
+
+<table>
+
+<tr>
+% for field in employees[0]:
+<th>${field}</th>
+% endfor
+</tr>
+
+% for emp in employees:
+<tr>
+% for field in emp:
+<td>${emp[field]}</td>
+% endfor
+</tr>
+% endfor
+</table>
+
+</body>
+
+
+</html>
